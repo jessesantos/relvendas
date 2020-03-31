@@ -1,5 +1,5 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="300"></p>
-<p align="center"><h3>RELATÓRIO DE VENDAS</h3></p>
+<p align="center">RELATÓRIO DE VENDAS</p>
 <p align="center"><a href="#">v0.01</a></p>
 
 ## Sobre o Código
