@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Vendas;
+use App\Venda;
 use Illuminate\Http\Request;
 
 class VendasController extends Controller
@@ -14,7 +14,9 @@ class VendasController extends Controller
      */
     public function index()
     {
-        //
+        $produtos = Produto::all();
+
+        return view('vendas.index', compact('produtos'));
     }
 
     /**
@@ -24,7 +26,7 @@ class VendasController extends Controller
      */
     public function create()
     {
-        //
+        return view('produtos.create');
     }
 
     /**
@@ -35,16 +37,31 @@ class VendasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required'
+        ]);
+
+        $produto = new Produto([
+            'nome' => $request->get('nome'),
+            'descricao' => $request->get('descricao'),
+            'quantidade' => $request->get('quantidade'),
+            'valor' => $request->get('valor'),
+            'foto' => $request->get('foto')
+        ]);
+
+        $produto->save();
+
+        return redirect('/produtos')->with('success', 'Produto cadastrado com sucesso');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\vendas  $vendas
+     * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(vendas $vendas)
+    public function show(Produto $produto)
     {
         //
     }
@@ -52,34 +69,52 @@ class VendasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\vendas  $vendas
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(vendas $vendas)
+    public function edit($id)
     {
-        //
+        $produto = Produto::find($id);
+
+        return view('produtos.edit')->with('produto', $produto);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\vendas  $vendas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, vendas $vendas)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required'
+        ]);
+        
+        $produto = Produto::find($id);
+        $produto->nome = $request->get('nome');
+        $produto->descricao = $request->get('descricao');
+        $produto->quantidade = $request->get('quantidade');
+        $produto->valor = $request->get('valor');
+        $produto->foto = $request->get('foto');
+        $produto->save();
+        
+        return redirect('/produtos')->with('success', 'Produto atualizado!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\vendas  $vendas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(vendas $vendas)
+    public function destroy($id)
     {
-        //
+        $produto = Produto::find($id);
+        $produto->delete();
+
+        return redirect('/produtos')->with('success', 'Produto Excluído!');
     }
 }
