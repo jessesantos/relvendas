@@ -23,6 +23,10 @@ Tecnologias empregas:
     >> Instala as dependências
  - Execute o comando no container: docker exec relvendas_myapp_1 php artisan migrate
     >> Cria as tabelas necessárias para o uso do sistema no banco de dados MariaDB
+ - Execute o comando no container: docker exec relvendas_myapp_1 composer require laravel/ui:^1.0
+    >> Requisição da dependência ui (última versão 1.*)
+ - Execute o comando no container: docker exec relvendas_myapp_1 npm install && npm run dev
+    >> Compila o scaffolding (isso pode demorar alguns minutos)
 
 ## Uso
 
