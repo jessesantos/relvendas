@@ -18,11 +18,11 @@ Tecnologias empregas:
 
  - Clone o projeto: git clone https://github.com/jessesantos/relvendas.git Relvendas
  - Instale o Docker e use o comando dentro da pasta do projeto: docker-compose up -d
-    >> Isso vai baixar os containers da Bitname e subir um projeto Laravel
+    >> Baixa os containers da Bitname e subir um projeto Laravel
  - Execute o comando no container: docker exec relvendas_myapp_1 composer install
-    >> Isso vai instalar as dependências
+    >> Instala as dependências
  - Execute o comando no container: docker exec relvendas_myapp_1 php artisan migrate
-    >> Isso vai criar as tabelas necessárias para o uso do sistema no banco de dados MariaDB
+    >> Cria as tabelas necessárias para o uso do sistema no banco de dados MariaDB
 
 ## Uso
 
