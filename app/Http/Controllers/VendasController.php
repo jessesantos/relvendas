@@ -14,9 +14,9 @@ class VendasController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
+        $vendas = Venda::all();
 
-        return view('vendas.index', compact('produtos'));
+        return view('vendas.index', compact('vendas'));
     }
 
     /**
@@ -26,7 +26,7 @@ class VendasController extends Controller
      */
     public function create()
     {
-        return view('produtos.create');
+        return view('vendas.create');
     }
 
     /**
@@ -38,30 +38,29 @@ class VendasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required',
+            'titulo' => 'required',
             'descricao' => 'required'
         ]);
 
-        $produto = new Produto([
-            'nome' => $request->get('nome'),
+        $venda = new Venda([
+            'titulo' => $request->get('titulo'),
             'descricao' => $request->get('descricao'),
             'quantidade' => $request->get('quantidade'),
-            'valor' => $request->get('valor'),
-            'foto' => $request->get('foto')
+            'valor' => $request->get('valor')
         ]);
 
-        $produto->save();
+        $venda->save();
 
-        return redirect('/produtos')->with('success', 'Produto cadastrado com sucesso');
+        return redirect('/vendas')->with('success', 'Venda cadastrada com sucesso');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Produto  $produto
+     * @param  \App\Venda  $venda
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
+    public function show(Venda $venda)
     {
         //
     }
@@ -74,9 +73,9 @@ class VendasController extends Controller
      */
     public function edit($id)
     {
-        $produto = Produto::find($id);
+        $venda = Venda::find($id);
 
-        return view('produtos.edit')->with('produto', $produto);
+        return view('vendas.edit')->with('venda', $venda);
     }
 
     /**
@@ -89,19 +88,18 @@ class VendasController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nome' => 'required',
+            'titulo' => 'required',
             'descricao' => 'required'
         ]);
         
-        $produto = Produto::find($id);
-        $produto->nome = $request->get('nome');
-        $produto->descricao = $request->get('descricao');
-        $produto->quantidade = $request->get('quantidade');
-        $produto->valor = $request->get('valor');
-        $produto->foto = $request->get('foto');
-        $produto->save();
+        $venda = Venda::find($id);
+        $venda->titulo = $request->get('titulo');
+        $venda->descricao = $request->get('descricao');
+        $venda->quantidade = $request->get('quantidade');
+        $venda->valor = $request->get('valor');
+        $venda->save();
         
-        return redirect('/produtos')->with('success', 'Produto atualizado!');
+        return redirect('/vendas')->with('success', 'Venda atualizada');
     }
 
     /**
@@ -112,9 +110,9 @@ class VendasController extends Controller
      */
     public function destroy($id)
     {
-        $produto = Produto::find($id);
-        $produto->delete();
+        $venda = Venda::find($id);
+        $venda->delete();
 
-        return redirect('/produtos')->with('success', 'Produto Excluído!');
+        return redirect('/vendas')->with('success', 'Venda Excluída');
     }
 }
