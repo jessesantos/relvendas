@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  mariadb:
+    image: 'bitnami/mariadb:10.1'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=laravel
+      - MARIADB_DATABASE=laravel
+      - MARIADB_PASSWORD=lara707x
+    ports:
+      - 3306:3306
+
+  myapp:
+    tty: true
+    image: bitnami/laravel:6
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=laravel
+      - DB_DATABASE=laravel
+      - DB_PASSWORD=lara707x
+    depends_on:
+      - mariadb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
