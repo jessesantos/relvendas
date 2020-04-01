@@ -14,7 +14,16 @@
         @endif
     </div>
         <div class="card mb-4">
-            <div class="card-header"><button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('vendas.create') }}';">Cadastrar Venda</button></div>
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md">
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('vendas.create') }}';">Cadastrar Venda</button>
+                    </div>
+                    <div class="col-md text-right">
+                        <button type="button" class="btn btn-primary" onclick="printDataTable()"><span class="fa fa fa-print"></span></button>
+                    </div>
+                </div>
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

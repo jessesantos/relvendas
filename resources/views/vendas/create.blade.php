@@ -22,20 +22,20 @@
                 <form method="post" action="{{ route('vendas.store') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="nome">Título da venda</label>
+                        <label for="nome">Título da venda *</label>
                         <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título da venda" required>
                     </div>
                     <div class="form-group">
-                        <label for="descricao">Descrição</label>
+                        <label for="descricao">Descrição *</label>
                         <textarea id="descricao" class="form-control" name="descricao" rows="5" cols="50" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="quantidade">Quantidade</label>
-                        <input type="number" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade em estoque">
+                        <label for="quantidade">Quantidade *</label>
+                        <input type="number" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade em estoque" required>
                     </div>
                     <div class="form-group">
-                        <label for="valor">Valor</label>
-                        <input type="text" class="form-control" id="valor" name="valor" placeholder="Exemplo: 1099.99">
+                        <label for="valor">Valor *</label>
+                        <input type="text" class="form-control" id="valor" name="valor" placeholder="Exemplo: 1099.99" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>

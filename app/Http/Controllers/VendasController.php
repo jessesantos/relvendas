@@ -39,7 +39,9 @@ class VendasController extends Controller
     {
         $request->validate([
             'titulo' => 'required',
-            'descricao' => 'required'
+            'descricao' => 'required',
+            'quantidade' => 'required',
+            'valor' => 'required'
         ]);
 
         $venda = new Venda([
@@ -89,7 +91,9 @@ class VendasController extends Controller
     {
         $request->validate([
             'titulo' => 'required',
-            'descricao' => 'required'
+            'descricao' => 'required',
+            'quantidade' => 'required',
+            'valor' => 'required'
         ]);
         
         $venda = Venda::find($id);
