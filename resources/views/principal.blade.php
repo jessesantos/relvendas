@@ -10,6 +10,12 @@
     <link href="http://{{ $_SERVER['HTTP_HOST'] }}/css/styles.css" rel="stylesheet"/>
     <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/dist/css/styles.css" rel="stylesheet"/>
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <style type="text/css">
+        .ajuste-margem {
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+    </style>
 </head>
 <body class="sb-nav-fixed">
 @include('topo')
@@ -20,8 +26,15 @@
                 @include('menuprincipal')
             </div>
             <div class="sb-sidenav-footer">
-                <div class="small">Logado como:</div>
-                Teste
+                @guest
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    @if (Route::has('register'))
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    @endif
+                @else
+                    <div class="small">Logado como:</div>
+                    {{ Auth::user()->name }}
+                @endguest
             </div>
         </nav>
     </div>

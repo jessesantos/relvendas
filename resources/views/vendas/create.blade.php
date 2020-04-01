@@ -7,7 +7,7 @@
 @endsection
 
 @section('conteudo')
-    <div class="corpo-conteudo">
+    <div class="corpo-conteudo ajuste-margem">
         <div class="row">
             <div class="col-lg-12">
                 @if ($errors->any())

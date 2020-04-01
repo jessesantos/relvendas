@@ -13,7 +13,7 @@
             </div>
         @endif
     </div>
-        <div class="card mb-4">
+        <div class="card mb-4 ajuste-margem">
             <div class="card-header">
                 <div class="row">
                     <div class="col-md">
