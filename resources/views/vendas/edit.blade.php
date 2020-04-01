@@ -23,8 +23,8 @@
                     @method('PATCH')
                     @csrf
                     <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" value="{{ $venda->titulo }}" class="form-control" id="nome" name="nome" placeholder="Título da venda" required>
+                        <label for="nome">Título da venda</label>
+                        <input type="text" value="{{ $venda->titulo }}" class="form-control" id="titulo" name="titulo" placeholder="Título da venda" required>
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição</label>
