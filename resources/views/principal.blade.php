@@ -9,8 +9,7 @@
     <title>Projeto Laravel @yield('pageTitle')</title>
     <link href="http://{{ $_SERVER['HTTP_HOST'] }}/css/styles.css" rel="stylesheet"/>
     <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/dist/css/styles.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
-            crossorigin="anonymous"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 </head>
 <body class="sb-nav-fixed">
 @include('topo')
@@ -47,6 +46,7 @@
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/dist/assets/demo/datatables-demo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 <script>
     function printDataTable()
     {

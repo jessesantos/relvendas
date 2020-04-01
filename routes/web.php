@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('vendas', 'VendasController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
