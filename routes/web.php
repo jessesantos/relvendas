@@ -13,10 +13,11 @@
 
 Route::get('/', function () {
     return view('principal');
-});
-
-Route::resource('vendas', 'VendasController');
+})->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('vendas', 'VendasController');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'VendasController@index')->name('home');
