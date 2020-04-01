@@ -26,7 +26,7 @@ Tecnologias empregas:
  - Execute o comando no container: docker exec relvendas_myapp_1 composer require laravel/ui:^1.0
     >> Requisição da dependência ui (última versão 1.*)
  - Execute o comando no container: docker exec relvendas_myapp_1 npm install && npm run dev
-    >> Compila o scaffolding (isso pode demorar alguns minutos)
+    >> Compila o scaffolding (necessário nodejs / isso pode demorar alguns minutos)
 
 ## Uso
 
